@@ -414,13 +414,13 @@ header .nav-links li i {
 }
 .contact .twoSide > * {
     padding: 5em;
-    height: 50vh;
+    height: 60vh;
 }
 .contact .leftSide {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     background-color: var(--gray-200);
     color: var(--body-II);
 }
@@ -428,16 +428,57 @@ header .nav-links li i {
     display: flex;
     flex-direction: column;
     gap: 2em;
-    /* justify-content: start; */
-    width: 80%;
+    width: 70%;
+}
+.contact .leftSide form input,
+.contact .leftSide form textarea {
+    background-color: transparent;
+    border: 1px solid var(--body-II);
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0, 0.5);
+    padding: 8px 15px;
+    color: var(--prim);
+    resize: none;
+    outline: none;
+}
+.contact .leftSide form input:focus,
+.contact .leftSide form textarea:focus {
+    box-shadow: 0px 2px 3px rgb(0, 0, 0, 0.7);
+}
+.contact .leftSide form input::placeholder {
+    color: var(--clr-text);
+    transition: 1s;
+}
+.contact .leftSide form input:focus::placeholder {
+    opacity: 0;
+}
+.contact .leftSide form input[type="submit"] {
+    background-color: var(--body-II);
+    color: var(--clr-text);
+    font-size: 1.2em;
+    padding: 5px 30px;
+    width: fit-content;
+    font-weight: bold;
+    align-self: flex-end;
+    transition: 0.3s;
+}
+.contact .leftSide form input[type="submit"]:hover {
+    background-color: var(--clr-text);
+    color: var(--body-II);
+    cursor: pointer;
+    box-shadow: 0px 2px 3px rgb(0, 0, 0, 0.7);
 }
 .contact .rightSide {
     flex: 1;
-    background-color: var(--gray-900);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    background-color: var(--body-II);
 }
-.contact .rightSide .contactImage img {
-    width: 30%;
-    mix-blend-mode: overlay;
+.contact .rightSide .contactImage {
+    max-width: 500px;
+    min-width: 300px;
 }
 /* ------------------------------------> Footer <------------------------------------- */
 footer {
@@ -481,13 +522,14 @@ footer ul {
 }
 footer ul a {
     color: var(--ff-text);
-    padding: 0.7em 1em;
+    padding: 8px 15px;
 }
 footer .links a {
     position: relative;
     text-transform: uppercase;
     font-size: 1.1em;
     transition: 0.3s;
+    text-align: left;
 }
 footer .links a::before {
     content: "\f101";
@@ -495,7 +537,7 @@ footer .links a::before {
     font-weight: 900;
     color: var(--prim);
     position: absolute;
-    left: -1em;
+    left: -15px;
     top: 50%;
     transform: translateY(-50%);
     transition: 0.3s;
@@ -521,12 +563,12 @@ footer h2 {
     text-shadow: 2px 2px 5px rgb(0, 0, 0, 0.6);
 }
 footer .social a {
-    padding: 0.5em;
+    padding: 8px;
 }
 footer .social i {
     font-size: 1.3em;
-    height: 1.8em;
-    width: 1.8em;
+    height: 35px;
+    width: 35px;
     border: 1px solid;
     border-radius: 50%;
     display: flex;
@@ -534,7 +576,8 @@ footer .social i {
     align-items: center;
     transition: 1s;
 }
-footer .social a:hover i {
+footer .social a:hover i,
+footer .social a:focus i {
     color: var(--body-II);
     background-color: var(--clr-text);
     transform: rotate(360deg);
@@ -544,7 +587,7 @@ footer .copyRight {
     display: flex;
     align-items: baseline;
     justify-content: center;
-    padding: 0.4em 0 0.6em;
+    padding: 5px 0 15px;
     gap: 5px;
 }
 footer .copyRight p {
@@ -606,14 +649,14 @@ footer .copyRight:hover span {
 @keyframes bouncing {
     40%,
     60% {
-        left: -0.3em;
+        left: -5px;
     }
     20%,
     80% {
-        left: -0.8em;
+        left: -10px;
     }
     0%,
     100% {
-        left: -0.3em;
+        left: -5px;
     }
 }
