@@ -35,6 +35,7 @@
     --prim-II: #1baa95;
     --body: #151618;
     --body-II: #252729;
+    --dark: #0d0e0f;
     --gradient-blue: linear-gradient(rgb(28, 170, 255) 0%, rgb(0, 120, 211) 100%);
     --boxShadow: rgb(45 50 59 / 2%) 0px 20px 87px, rgb(45 50 59 / 3%) 0px 10px 38px, rgb(45 50 59 / 5%) 0px 4px 14px, rgb(45 50 59 / 8%) 0px 1px 5px;
     --ff-title: "Crimson Pro", serif;
@@ -124,6 +125,24 @@ ul {
     margin: -3em auto 0;
     padding: 0 1.4em;
 }
+@media (max-width: 768px) {
+    .mainTitle {
+        font-size: 4.4em;
+    }
+    .mainTitle + p {
+        font-size: 1em;
+    }
+}
+@media (max-width: 340px) {
+    .mainTitle {
+        font-size: 3em;
+    }
+    .mainTitle + p {
+        font-size: .7em;
+        margin: -2.6em auto 0;
+    }
+}
+
 /* -------------------------------- media Quary ---------------------------------------- */
 /* -------- Small devices (landscape phones, 576px and up) --------  */
 @media (min-width: 576px) {
@@ -207,6 +226,12 @@ header .nav-links {
         gap: 0.6em;
     }
 }
+@media (max-width: 576px) {
+    header .nav-links {
+        flex-direction: column;
+        margin-bottom: 1em;
+    }
+}
 header .nav-links li a {
     height: 3.4em;
     display: flex;
@@ -221,7 +246,12 @@ header .nav-links li a {
 }
 @media (max-width: 768px) {
     header .nav-links li a {
-        font-size: 0.8em;
+        font-size: 0.9em;
+    }
+}
+@media (max-width: 576px) {
+    header .nav-links li a {
+        height: 2.2em;
     }
 }
 header .nav-links a:hover {
@@ -263,6 +293,19 @@ header .nav-links li i {
     padding: 1.5em;
     position: relative;
 }
+@media (max-width: 768px) {
+    .landing .container {
+        flex-direction: column;
+        height: calc(100vh - 6.2em);
+        justify-content: center;
+    }
+}
+@media (max-width: 576px) {
+    .landing .container {
+        height: 70vh;
+        gap: 0;
+    }
+}
 .landing .container > * {
     flex: 1;
 }
@@ -289,12 +332,7 @@ header .nav-links li i {
 .landing .container .text p {
     line-height: 2em;
 }
-@media (max-width: 768px) {
-    .landing .container {
-        flex-direction: column;
-        height: calc(100vh - 6.2em);
-        justify-content: center;
-    }
+@media (max-width: 768px){
     .landing .text {
         order: 2;
         text-align: center;
@@ -303,14 +341,6 @@ header .nav-links li i {
 /* ------------------------------------> Portfolio <------------------------------------- */
 .portfolio {
     padding: 100px 0;
-}
-@media (max-width: 576px) {
-    .mainTitle {
-        font-size: 4.4em;
-    }
-    .mainTitle + p {
-        font-size: 1em;
-    }
 }
 .portfolio .container {
     display: grid;
@@ -403,7 +433,8 @@ header .nav-links li i {
 /* ------------------------------------> Contact <------------------------------------- */
 .contact {
     padding-top: 60px;
-    padding-bottom: 60px;
+    /* padding-bottom: 60px; */
+    /* min-height: 100vh; */
 }
 .contact .twoSide {
     display: flex;
@@ -413,29 +444,62 @@ header .nav-links li i {
     margin-top: 3em;
 }
 .contact .twoSide > * {
-    padding: 5em;
     height: 60vh;
+    padding: 60px 30px;
+}
+@media (max-width: 876px) {
+    .contact .twoSide {
+        flex-direction: column;
+    }
+    .contact .twoSide > * {
+        width: 100%;
+    }
 }
 .contact .leftSide {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--gray-200);
+    background-color: var(--gray-900);
     color: var(--body-II);
+    position: relative;
 }
+/* .contact .leftSide::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    bottom: 0;
+    animation: changeImage 5s infinite 1s;
+    background-image: url(../image/wolf02.png);
+    background-size: contain;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    mix-blend-mode: overlay;
+    transition: 0.3s;
+    opacity: 0.2;
+} */
 .contact .leftSide form {
     display: flex;
     flex-direction: column;
     gap: 2em;
     width: 70%;
+    z-index: 2;
+    color: var(--clr-text);
+}
+@media (max-width: 876px) {
+    .contact .leftSide form {
+        width: 90%;
+    }
 }
 .contact .leftSide form input,
 .contact .leftSide form textarea {
-    background-color: transparent;
-    border: 1px solid var(--body-II);
+    background-color: var(--dark);
+    border: none;
     border-radius: 5px;
-    box-shadow: 1px 1px 5px rgb(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 3px rgb(0, 0, 0, 0.7);
     padding: 8px 15px;
     color: var(--prim);
     resize: none;
@@ -443,18 +507,20 @@ header .nav-links li i {
 }
 .contact .leftSide form input:focus,
 .contact .leftSide form textarea:focus {
-    box-shadow: 0px 2px 3px rgb(0, 0, 0, 0.7);
+    box-shadow: 1px 1px 3px rgb(0, 0, 0, 0.5), 1px 1px 5px rgba(0, 0, 0, 0.5) inset, -1px -1px 5px rgba(0, 0, 0, 0.5) inset;
 }
-.contact .leftSide form input::placeholder {
-    color: var(--clr-text);
+.contact .leftSide form input::placeholder,
+.contact .leftSide form textarea::placeholder {
+    color: var(--gray-700);
     transition: 1s;
 }
-.contact .leftSide form input:focus::placeholder {
+.contact .leftSide form input:focus::placeholder,
+.contact .leftSide form textarea:focus::placeholder {
     opacity: 0;
 }
 .contact .leftSide form input[type="submit"] {
-    background-color: var(--body-II);
-    color: var(--clr-text);
+    background-color: var(--clr-text);
+    color: var(--body-II);
     font-size: 1.2em;
     padding: 5px 30px;
     width: fit-content;
@@ -463,8 +529,8 @@ header .nav-links li i {
     transition: 0.3s;
 }
 .contact .leftSide form input[type="submit"]:hover {
-    background-color: var(--clr-text);
-    color: var(--body-II);
+    background-color: var(--dark);
+    color: var(--clr-text);
     cursor: pointer;
     box-shadow: 0px 2px 3px rgb(0, 0, 0, 0.7);
 }
@@ -474,11 +540,35 @@ header .nav-links li i {
     flex-direction: column;
     align-items: center;
     gap: 2em;
-    background-color: var(--body-II);
+    background-color: var(--gray-100);
+    color: var(--body);
 }
-.contact .rightSide .contactImage {
-    max-width: 500px;
-    min-width: 300px;
+.contact .rightSide > h2 {
+    margin-bottom: 40px;
+}
+.contact .rightSide .QR__code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 15px 40px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.5), 1px 1px 5px rgb(0, 0, 0, 0.3);
+}
+.contact .rightSide .QR__code > img {
+    max-width: 180px;
+}
+.contact .rightSide .QR__code .user img {
+    margin-bottom: 15px;
+}
+.contact .rightSide .QR__code .user h2 {
+    color: var(--prim);
+    font-size: 1.625em;
+}
+.contact .rightSide .QR__code .user p {
+    color: var(--clr-text);
+    font-size: 1em;
 }
 /* ------------------------------------> Footer <------------------------------------- */
 footer {
@@ -495,6 +585,7 @@ footer .container {
 @media (max-width: 767px) {
     footer .container {
         flex-direction: column;
+        align-items: center;
     }
 }
 footer .logo a {
@@ -524,6 +615,9 @@ footer ul a {
     color: var(--ff-text);
     padding: 8px 15px;
 }
+footer .links h2 {
+    margin-bottom: 10px;
+}
 footer .links a {
     position: relative;
     text-transform: uppercase;
@@ -547,7 +641,7 @@ footer .links a:hover {
     text-shadow: 1px 1px 3px var(--body);
 }
 footer .links a:hover::before {
-    animation: bouncing 1s infinite linear;
+    animation: bouncing 2s infinite linear;
     color: var(--clr-text);
 }
 footer .social {
@@ -658,5 +752,16 @@ footer .copyRight:hover span {
     0%,
     100% {
         left: -5px;
+    }
+}
+@keyframes changeImage {
+    0%,
+    100% {
+        /* background-image: url(../image/wolf01.png); */
+        background-size: auto 30%;
+    }
+    50% {
+        /* background-image: url(../image/wolf02.png); */
+        background-size: auto 100%;
     }
 }
