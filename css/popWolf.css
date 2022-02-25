@@ -269,7 +269,7 @@ header .nav-links li i {
 /* -------------------------------- Landing ---------------------------------------- */
 
 .landing {
-    background: linear-gradient(0deg, var(--body), var(--gray-500));
+    background: linear-gradient(90deg, var(--body-II), var(--gray-400));
 }
 .landing .container {
     overflow-x: hidden;
@@ -416,12 +416,16 @@ header .nav-links li i {
     font-weight: 900;
     font-size: 1.2em;
     position: absolute;
-    bottom: 0.8em;
+    bottom: 20px;
     color: var(--prim);
-    left: 8em;
+    left: 130px;
 }
 .portfolio .box:hover .more::before {
     animation: link 1s linear infinite;
+}
+.portfolio .box .more a{
+    color: var(--prim);
+    font-size: 1.1em;
 }
 /* --------------------------> Contact <--------------------------- */
 .contact {
