@@ -3,19 +3,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200;1,200;1,500;1,600;1,700;1,900&display=swap");
 /* -------------------------- global rules ---------------------------- */
 :root {
-    --clr-title: #e9ecef;
-    --clr-text: #adb5bd;
-    --clr-light: #e9f4ff;
-    --blue: #0d6efd;
-    --indigo: #6610f2;
-    --purple: #6f42c1;
-    --pink: #d63384;
-    --red: #dc3545;
-    --orange: #fd7e14;
-    --yellow: #ffc107;
-    --green: #168877;
-    --teal: #20c997;
-    --cyan: #0dcaf0;
+    --clr-title: #343a40;
+    --clr-text: #495057;
+    --clr-light: #6c757d;
     --white: #fff;
     --gray-dark: #343a40;
     --gray-100: #f8f9fa;
@@ -31,10 +21,10 @@
     --info: #0dcaf0;
     --warning: #ffc107;
     --danger: #dc3545;
-    --prim: #c00040;
+    --prim: #2d88ff;
     --prim-II: #1baa95;
-    --body: #151618;
-    --body-II: #252729;
+    --body: #e9ecef;
+    --body-II: #f8f9fa;
     --dark: #0d0e0f;
     --gradient-blue: linear-gradient(rgb(28, 170, 255) 0%, rgb(0, 120, 211) 100%);
     --boxShadow: rgb(45 50 59 / 2%) 0px 20px 87px, rgb(45 50 59 / 3%) 0px 10px 38px, rgb(45 50 59 / 5%) 0px 4px 14px, rgb(45 50 59 / 8%) 0px 1px 5px;
@@ -109,7 +99,7 @@ ul {
     padding: 15vh 0.6em;
 }
 .mainTitle {
-    color: var(--gray-600);
+    color: var(--gray-400);
     font-size: 7em;
     text-align: center;
     font-weight: 800;
@@ -117,7 +107,7 @@ ul {
     margin: 0;
 }
 .mainTitle + p {
-    color: var(--clr-title);
+    color: var(--gray-700);
     text-align: center;
     margin-top: -3em;
     font-size: 1.4em;
@@ -181,8 +171,8 @@ ul {
 /* -------------------------------- Header ---------------------------------------- */
 
 header {
-    background-color: var(--body);
-    box-shadow: 0 0.1em 0.2em rgb(0, 0, 0, 0.5);
+    background-color: var(--body-II);
+    box-shadow: 0 2px 3px rgb(0, 0, 0, 0.3);
     border-radius: 0 0 0.2em 0.2em;
     animation: from-top 2s forwards;
     transform: translateY(-5.5em);
@@ -203,7 +193,7 @@ header .logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 3.4em;
+    height: 60px;
 }
 header .logo a {
     color: var(--prim);
@@ -229,16 +219,16 @@ header .nav-links {
 @media (max-width: 576px) {
     header .nav-links {
         flex-direction: column;
-        margin-bottom: 1em;
+        margin-bottom: 15px;
     }
 }
 header .nav-links li a {
-    height: 3.4em;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.4em;
-    padding: 0 1.6em;
+    gap: 6px;
+    padding: 0 20px;
     font-size: 1.1em;
     color: var(--clr-title);
     transition: 0.3s;
@@ -251,23 +241,23 @@ header .nav-links li a {
 }
 @media (max-width: 576px) {
     header .nav-links li a {
-        height: 2.2em;
+        height: 35px;
     }
 }
 header .nav-links a:hover {
     color: var(--prim);
-    transform: translateY(-0.2em);
+    transform: translateY(-6px);
 }
 header .nav-links li a::before {
     content: "";
-    height: 0.1em;
+    height: 2px;
     width: 0;
     position: absolute;
-    top: 0.4em;
+    top: 7px;
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--prim);
-    border-radius: 1em;
+    border-radius: 15px;
     transition: 0.3s;
 }
 header .nav-links li a:hover::before {
@@ -279,10 +269,7 @@ header .nav-links li i {
 /* -------------------------------- Landing ---------------------------------------- */
 
 .landing {
-    background-color: var(--body-II);
-    background-image: url(../image/wolf.jpg);
-    background-size: cover;
-    background-blend-mode: multiply;
+    background: linear-gradient(0deg, var(--body), var(--gray-500));
 }
 .landing .container {
     overflow-x: hidden;
@@ -331,6 +318,7 @@ header .nav-links li i {
 }
 .landing .container .text p {
     line-height: 2em;
+    color: var(--gray-600);
 }
 @media (max-width: 768px){
     .landing .text {
@@ -353,10 +341,10 @@ header .nav-links li i {
     position: relative;
     border-radius: 0.5em;
     background-color: var(--body-II);
-    box-shadow: 0 0 10px rgb(0, 0, 0, 0.8);
+    box-shadow: 2px 2px 6px rgb(0, 0, 0, 0.1);
     overflow: hidden;
     transition: 0.3s;
-    border: 1px solid var(--gray-900);
+    border: 1px solid var(--gray-200);
 }
 @media (max-width: 768px) {
     .portfolio .container .box {
@@ -374,7 +362,7 @@ header .nav-links li i {
 .portfolio .container .box:focus {
     transform: translateY(-0.6em);
     height: 100%;
-    box-shadow: 0 2px 5px rgb(0, 0, 0, 0.7);
+    box-shadow: 0 2px 5px rgb(0, 0, 0, 0.4);
 }
 .portfolio .box .image {
     border-radius: 0.5em;
@@ -388,13 +376,13 @@ header .nav-links li i {
     filter: grayscale();
 }
 .portfolio .box:hover .image {
-    filter: brightness(80%);
+    filter: contrast(90%);
 }
 .portfolio .box .text {
     position: absolute;
     transition: 0.3s;
     bottom: -8.9em;
-    background: linear-gradient(0deg, black 46%, transparent 100%);
+    background: linear-gradient(0deg, var(--body-II) 60%, transparent 100%);
 }
 .portfolio .box:hover .text {
     bottom: 0;
@@ -402,14 +390,14 @@ header .nav-links li i {
 .portfolio .box h3 {
     font-size: 1.6em;
     padding: 7em 0 0.5em;
-    color: var(--clr-light);
+    color: var(--gray-800);
 }
 .portfolio .box p {
     margin: 0;
-    padding: 1em;
+    padding: 10px;
     font-size: 0.8em;
-    color: var(--gray-500);
-    background-color: black;
+    color: var(--gray-600);
+    background-color: var(--body-II);
 }
 .portfolio .box .more {
     text-align: left;
@@ -420,7 +408,7 @@ header .nav-links li i {
     font-size: 1.4em;
     position: relative;
     color: var(--prim);
-    background-color: black;
+    background-color: var(--body-II);
 }
 .portfolio .box .more::before {
     content: "\f177";
@@ -438,15 +426,13 @@ header .nav-links li i {
 /* --------------------------> Contact <--------------------------- */
 .contact {
     padding-top: 60px;
-    /* padding-bottom: 60px; */
-    /* min-height: 100vh; */
 }
 .contact .twoSide {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 3em;
+    margin-top: 40px;
 }
 .contact .twoSide > * {
     height: 70vh;
@@ -466,7 +452,6 @@ header .nav-links li i {
     flex-direction: column;
     align-items: center;
     background-color: var(--gray-900);
-    color: var(--body-II);
     position: relative;
 }
 .contact .leftSide form {
@@ -475,7 +460,7 @@ header .nav-links li i {
     gap: 2em;
     width: 70%;
     z-index: 2;
-    color: var(--clr-text);
+    color: var(--gray-300);
 }
 @media (max-width: 876px) {
     .contact .leftSide form {
@@ -500,15 +485,15 @@ header .nav-links li i {
 .contact .leftSide form input::placeholder,
 .contact .leftSide form textarea::placeholder {
     color: var(--gray-700);
-    transition: 1s;
+    transition: 0.6s;
 }
 .contact .leftSide form input:focus::placeholder,
 .contact .leftSide form textarea:focus::placeholder {
     opacity: 0;
 }
 .contact .leftSide form input[type="submit"] {
-    background-color: var(--clr-text);
-    color: var(--body-II);
+    background-color: var(--gray-300);
+    color: var(--gray-700);
     font-size: 1.2em;
     padding: 5px 30px;
     width: fit-content;
@@ -529,7 +514,7 @@ header .nav-links li i {
     align-items: center;
     gap: 2em;
     background-color: var(--gray-100);
-    color: var(--body);
+    color: var(--gray-700);
 }
 .contact .rightSide > h2 {
     margin-bottom: 40px;
@@ -542,7 +527,7 @@ header .nav-links li i {
     gap: 40px;
     padding: 15px 40px;
     border-radius: 20px;
-    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.5), 1px 1px 5px rgb(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.2), 1px 1px 5px rgb(0, 0, 0, 0.1);
 }
 .contact .rightSide .QR__code > img {
     max-width: 180px;
@@ -561,7 +546,7 @@ header .nav-links li i {
 /* ------------------------------------> Footer <------------------------------------- */
 footer {
     background-color: var(--body-II);
-    box-shadow: inset 0 1em 2em var(--body);
+    box-shadow: inset 0 5px 30px var(--gray-400);
 }
 footer .container {
     display: flex;
@@ -625,11 +610,12 @@ footer .links a::before {
     transition: 0.3s;
 }
 footer .links a:hover {
-    color: var(--gray-100);
-    text-shadow: 1px 1px 3px var(--body);
+    color: var(--prim);
+    text-shadow: 1px 1px 3px rgb(0, 0, 0, 0.25);
+    transition: 0.3s;
 }
 footer .links a:hover::before {
-    animation: bouncing 2s infinite linear;
+    animation: bouncing 1s infinite 0.2s linear;
     color: var(--clr-text);
 }
 footer .social {
@@ -642,7 +628,7 @@ footer .social h2 {
     width: 100%;
 }
 footer h2 {
-    text-shadow: 2px 2px 5px rgb(0, 0, 0, 0.6);
+    text-shadow: 2px 2px 5px rgb(0, 0, 0, 0.25);
 }
 footer .social a {
     padding: 8px;
@@ -656,7 +642,7 @@ footer .social i {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 1s;
+    transition: 0.5s;
 }
 footer .social a:hover i,
 footer .social a:focus i {
@@ -665,7 +651,7 @@ footer .social a:focus i {
     transform: rotate(360deg);
 }
 footer .copyRight {
-    border-top: 1px solid var(--gray-800);
+    border-top: 1px solid var(--gray-700);
     display: flex;
     align-items: baseline;
     justify-content: center;
